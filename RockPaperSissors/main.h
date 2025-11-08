@@ -1,2 +1,2 @@
 #pragma once
-char ThrownOut(char[], char[]);
+char* ThrownOut(char[], char[]);

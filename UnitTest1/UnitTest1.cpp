@@ -1,7 +1,8 @@
 #include "pch.h"
 #include "CppUnitTest.h"
+#include <string.h>
 
-extern "C" char ThrownOut(char[], char[]);
+extern "C" char* ThrownOut(char[], char[]);
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -14,11 +15,12 @@ namespace UnitTest1
 		TEST_METHOD(InvalidPlayerOne)
 		{
 			//testing if player 1 input an invaild response
-			char result[] = "Invalid";
+			char result[50] = "Invalid";
 			char PlayerOne[] = "fhdhbhvdb";
 			char PlayerTwo[] = "scissors";
-			*result = ThrownOut(PlayerOne, PlayerTwo);
-			Assert::AreEqual(result, "invalid");
+		
+			strcpy_s(result,sizeof(result), ThrownOut(PlayerOne, PlayerTwo));
+			Assert::AreEqual(result,"Invalid");
 		}
 	};
 }
