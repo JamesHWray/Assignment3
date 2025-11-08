@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 
+extern "C" char ThrownOut(char[], char[]);
+
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTest1
